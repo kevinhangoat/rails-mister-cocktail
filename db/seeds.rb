@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Dose.delete_all
 Ingredient.delete_all
-Cocktail.delete
+Cocktail.delete_all
 
 ingredients_url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
 ingredients_json = open(ingredients_url).read
