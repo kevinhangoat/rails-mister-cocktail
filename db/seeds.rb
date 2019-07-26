@@ -35,7 +35,7 @@ cocktails.each_with_index do |cocktail, index|
   cocktail["ingredients"].each do |ingredient|
     if ingredient["ingredient"]
       i = Ingredient.find_or_create_by(name: ingredient["ingredient"])
-      d = Dose.create(description: ingredient[:amount].to_s + " " + ingredient["unit"], cocktail: c, ingredient: i)
+      d = Dose.create(description: ingredient["amount"].to_s + " " + ingredient["unit"], cocktail: c, ingredient: i)
       puts "added #{d.description} of #{i.name} to #{c.name}"
     end
   end

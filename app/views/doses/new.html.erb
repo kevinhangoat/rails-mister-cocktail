@@ -1,5 +1,43 @@
-<%= simple_form_for [@cocktail, @dose] do |f|%>
-<%= f.input :description %>
-<%= f.association :ingredient, collection: @ingredients %>
-<%= f.submit "add a dose", class: "btn btn-primary" %>
-<% end %>
+<!-- banner -->
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand avatar" do %>
+    <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTobhqoqPRphj6JVmmOqtnkVo0QHnGFa8LWsVXxH8VONtYaaGKRw", class: "avatar dropdown-toggle"%>
+    <p class = "navbar-brand" style = "color: black; font-family: 'Indie Flower', cursive;">Cocktail Weaver</p>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a style = "font-family: 'Indie Flower', cursive;" href= "cocktails/new" class="btn btn-black">Create A New Cocktail</a>
+      </li>
+      <li class="nav-item dropdown">
+        <%= image_tag "user.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Action", "#", class: "dropdown-item" %>
+          <%= link_to "Another action", "#", class: "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+<div class = "container text-center" style = "background-image: url(https://images.unsplash.com/photo-1527271982979-83fea3eb3582?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80); height: 500px; width: 700px; object-fit: cover; padding: 150px 80px; opacity: 0.7">
+  <h1 class="text-Indie" >Weave a dose for <%= @cocktail[:name] %></h1>
+  <%= simple_form_for [@cocktail, @dose] do |f|%>
+  <%= f.label :description, "Amount", class: "text-Indie" %>
+  <%= f.input :description, class: "text-Indie", label: false %>
+  <%= f.label :description, "Amount", class: "text-Indie" %>
+  <%= f.association :ingredient, collection: @ingredients, label: false %>
+  <%= f.submit "add a dose", class: "btn btn-primary text-Indie" %>
+  <% end %>
+</div>
+
+
