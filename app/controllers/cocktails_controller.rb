@@ -13,6 +13,7 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktailparams)
+    @cocktail["image"] = "http://cocktail.itsplanet.eu/img/cocktail/2017_413.jpg"
     @cocktail.save
     redirect_to root_path
   end
