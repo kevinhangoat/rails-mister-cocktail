@@ -1,0 +1,36 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+}
+
+.navbar-lewagon-white {
+  background-color: white;
+}
+
+.navbar-lewagon-white-text {
+  color: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.nav-text-white{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 5px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.btn-black{
+  background-color: black;
+  color: white;
+}
