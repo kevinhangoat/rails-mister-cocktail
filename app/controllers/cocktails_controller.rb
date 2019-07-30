@@ -1,6 +1,12 @@
 class CocktailsController < ApplicationController
   def index
     @cocktails = Cocktail.all
+    @search = params["search"]
+    if @search.present?
+      @name = @search["name"]
+      @ingredient = @search["ingredient"]
+      @cocktails = Cocktail.where(name: @name) || Dose.where(ingredient: @ingredient).each { |d| d.cocktail}
+    end
   end
 
   def new
@@ -13,7 +19,6 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktailparams)
-    @cocktail["image"] = "http://cocktail.itsplanet.eu/img/cocktail/2017_413.jpg"
     @cocktail.save
     redirect_to root_path
   end
@@ -33,6 +38,6 @@ class CocktailsController < ApplicationController
   private
 
   def cocktailparams
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 end

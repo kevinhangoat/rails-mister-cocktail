@@ -34,7 +34,7 @@
   <%= simple_form_for [@cocktail, @dose] do |f|%>
   <%= f.label :description, "Amount", class: "text-Indie" %>
   <%= f.input :description, class: "text-Indie", label: false %>
-  <%= f.label :description, "Amount", class: "text-Indie" %>
+  <%= f.label :Ingredient, "Ingredient", class: "text-Indie" %>
   <%= f.association :ingredient, collection: @ingredients, label: false %>
   <%= f.submit "add a dose", class: "btn btn-primary text-Indie" %>
   <% end %>

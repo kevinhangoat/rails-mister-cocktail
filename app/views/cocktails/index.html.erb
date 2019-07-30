@@ -1,6 +1,6 @@
 <!-- navbar   -->
 <div class="fixed-top navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand avatar" do %>
+  <%= link_to root_path, class: "navbar-brand avatar" do %>
     <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTobhqoqPRphj6JVmmOqtnkVo0QHnGFa8LWsVXxH8VONtYaaGKRw", class: "avatar dropdown-toggle"%>
     <p class = "navbar-brand" style = "color: white; font-family: 'Indie Flower', cursive;">Cocktail Weaver</p>
   <% end %>
@@ -11,15 +11,22 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto navbar-search-box">
       <li class="nav-item">
         <a style = "font-family: 'Indie Flower', cursive;" href= "cocktails/new" class="btn btn-black">Weave A New Cocktail</a>
+      </li>
+      <li>
+        <div class = "small-search-box" >
+          <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+          <%= f.input :name, input_html: {value: ""}, label:false %>
+          <%= f.submit "Search", class: "btn btn-outline-light" %>
+        <% end %>
       </li>
       <li class="nav-item dropdown">
         <%= image_tag "user.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
+          <%= link_to "My cocktails", "#", class: "dropdown-item" %>
+          <%= link_to "Weave a new cocktail", "#", class: "dropdown-item" %>
         </div>
       </li>
     </ul>
@@ -28,7 +35,17 @@
 
 <!-- banner -->
 <div class="home-banner">
-  <h1 style = "font-family: 'Indie Flower', cursive; font-size: 80px;">Cocktail Weaver</h1>
+  <h1 class = "text-Indie" >Cocktail Weaver</h1>
+  <p>
+    <span id="banner-typed-text"></span>
+  </p>
+
+  <div class = "search-box" >
+    <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <%= f.input :name, input_html: {value: ""}, label:false %>
+      <%= f.submit "Search", class: "btn btn-outline-light" %>
+    <% end %>
+  </div>
 </div>
 
 <div class="container">
@@ -45,7 +62,11 @@
       <div class="col-sm-8 col-md-6 col-lg-3 my-5">
         <%= link_to cocktail_path(cocktail) do%>
           <div class="card-trip">
-            <img src= <%= cocktail[:image] %> />
+            <% if cocktail[:image] %>
+              <img src= <%= cocktail[:image] %> />
+            <% else %>
+              <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill %>
+            <% end %>
             <div class="card-trip-infos">
               <div>
                 <h2 style = "font-size: 22px" class = "btn btn-light text-Indie" ><%= cocktail[:name] %></h2>

@@ -15,8 +15,8 @@
       <li class="nav-item dropdown">
         <%= image_tag "user.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
+          <%= link_to "My cocktails", "#", class: "dropdown-item" %>
+          <%= link_to "Weave a new cocktail", "#", class: "dropdown-item" %>
         </div>
       </li>
     </ul>
@@ -27,11 +27,14 @@
 
 
 
-<div class = "container text-center" style = "background-image: url(https://images.unsplash.com/photo-1527271982979-83fea3eb3582?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80); height: 500px; width: 600px; object-fit: cover; padding: 150px 100px; opacity: 0.7;">
-  <h1 class="text-Indie" >Weave a new cocktail</h1>
+<div class = "container text-center form-text" style = "background-image: url(https://images.unsplash.com/photo-1527271982979-83fea3eb3582?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80); height: 500px; width: 600px; object-fit: cover; padding: 150px 100px; opacity: 0.7;">
+  <h1 >Weave a new cocktail</h1>
   <%= simple_form_for @cocktail do |f| %>
-  <%= f.label :name, "Name", class: "text-Indie" %>
-  <%= f.input :name, class: "text-Indie", label: false%>
-  <%= f.submit "add a cocktail", label: false, class: "btn btn-light text-Indie" %>
+  <%= f.label :name, "Name of your cocktail:" %>
+  <%= f.input :name, label: false%>
+  <%= f.label :photo, "Upload an image for your cocktail:" %>
+  <%= f.input :photo, label: false%>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit "add your cocktail", label: false, class: "btn btn-light text-Indie" %>
   <% end %>
 </div>

@@ -5,4 +5,30 @@
   color: #eee;
   text-align: center;
   padding-top: 40vh;
+
+  h1 {
+    font-family: $cursive-font;
+    font-size: 80px;
+  }
+
+  input{
+    font-family: $cursive-font;
+  }
+
+  .search-box{
+    display: flex;
+    justify-content: center;
+    border-radius: 25%;
+
+  }
+
+  input[type = "text"]{
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.5);
+    font-family: $cursive-font;
+    text-color: white;
+  }
+
+
 }
+
